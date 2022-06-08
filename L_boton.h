@@ -29,7 +29,7 @@ class L_boton {
     bool lecturaBoton;                                // variable donde guardamos la lectura del botón
     bool lecturaBotonAnterior = HIGH;                 // lectura del botón anterior
     bool accionBoton = LOW;                           // variable para saber si el botón ha cambiado
-    uint64_t tiempoInicio;                            // contador de tiempo
+    uint32_t tiempoInicio;                            // contador de tiempo
     uint16_t tiempoPulsado;                           // medimos el tiempo que se ha pulsado
 
   public:
