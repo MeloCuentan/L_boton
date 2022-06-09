@@ -36,7 +36,7 @@ class L_boton {
 
     L_boton(uint8_t pin);                               // función básica, solo el pin y tiempo por defecto
     L_boton(uint8_t pin, uint16_t TIEMPO_PULSO_LARGO);  // pin más el tiempo de activación largo
-    uint8_t leerEstado();                             // leer estado del botón
+    uint8_t leerEstado();                               // leer estado del botón
 
 };
 
