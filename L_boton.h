@@ -17,6 +17,8 @@
 #define L_boton_h
 #include "Arduino.h"
 
+#define PULSO_CORTO 1
+#define PULSO_LARGO 2
 
 class L_boton {
 
