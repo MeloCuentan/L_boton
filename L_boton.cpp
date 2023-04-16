@@ -53,7 +53,7 @@ uint8_t L_boton::leerEstado() {
   {
     accionBoton = LOW;
     tiempoPulsado = 0;
-    respuesta = 1;
+    respuesta = PULSO_CORTO;
   }
 
   if ( millis() - tiempoInicio
@@ -62,7 +62,7 @@ uint8_t L_boton::leerEstado() {
   {
     accionBoton = LOW;
     tiempoPulsado = 0;
-    respuesta = 2;
+    respuesta = PULSO_LARGO;
   }
 
     return respuesta;
