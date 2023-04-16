@@ -22,12 +22,12 @@ void loop() {
   lecturaPulsador2 = pulsador2.leerEstado();  // Guardamos el valor leído del pulsador 2
 
   // Según el valor hacemos una cosa u otra
-  if (lecturaPulsador1 == 1){
+  if (lecturaPulsador1 == PULSO_CORTO){
     Serial.println("PULSADOR 1 CORTO");
   } else if (lecturaPulsador1 == 2){
     Serial.println("PULSADOR 1 LARGO");
   }
-  if (lecturaPulsador2 == 1){
+  if (lecturaPulsador2 == PULSO_LARGO){
     Serial.println("PULSADOR 2 CORTO");
   } else if (lecturaPulsador2 == 2){
     Serial.println("PULSADOR 2 LARGO");
