@@ -18,7 +18,7 @@ L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_LARGO) {
   pinMode(pin, INPUT_PULLUP);
 }
 
-L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_CORTO, uint16_t _TIEMPO_PULSO_CORTO) {
+L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_CORTO, uint16_t _TIEMPO_PULSO_LARGO) {
   pin = _pin;
   TIEMPO_PULSO_CORTO = _TIEMPO_PULSO_CORTO;
   TIEMPO_PULSO_LARGO = _TIEMPO_PULSO_LARGO;
