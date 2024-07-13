@@ -3,26 +3,26 @@
 
 // Asignamos el valor del pin y lo configuramos como INPUT_PULLUP
 
-L_boton::L_boton(uint8_t _pin) {
-  pin = _pin;
-  pinMode(pin, INPUT_PULLUP);
+L_boton::L_boton(uint8_t pin) {
+  _pin = pin;
+  pinMode(_pin, INPUT_PULLUP);
 }
 
 
 // Asignamos el valor del pin , lo configuramos como INPUT_PULLUP y 
 // el tiempo que se activa el pulso largo
 
-L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_LARGO) {
-  pin = _pin;
-  TIEMPO_PULSO_LARGO = _TIEMPO_PULSO_LARGO;
-  pinMode(pin, INPUT_PULLUP);
+L_boton::L_boton(uint8_t pin, uint16_t TIEMPO_PULSO_LARGO) {
+  _pin = pin;
+  _TIEMPO_PULSO_LARGO = TIEMPO_PULSO_LARGO;
+  pinMode(_pin, INPUT_PULLUP);
 }
 
-L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_CORTO, uint16_t _TIEMPO_PULSO_LARGO) {
-  pin = _pin;
-  TIEMPO_PULSO_CORTO = _TIEMPO_PULSO_CORTO;
-  TIEMPO_PULSO_LARGO = _TIEMPO_PULSO_LARGO;
-  pinMode(pin, INPUT_PULLUP);
+L_boton::L_boton(uint8_t pin, uint16_t TIEMPO_PULSO_CORTO, uint16_t TIEMPO_PULSO_LARGO) {
+  _pin = pin;
+  _TIEMPO_PULSO_CORTO = TIEMPO_PULSO_CORTO;
+  _TIEMPO_PULSO_LARGO = TIEMPO_PULSO_LARGO;
+  pinMode(_pin, INPUT_PULLUP);
 }
 
 
@@ -31,47 +31,47 @@ L_boton::L_boton(uint8_t _pin, uint16_t _TIEMPO_PULSO_CORTO, uint16_t _TIEMPO_PU
 
 uint8_t L_boton::leerEstado() {
   
-  uint8_t respuesta = 0;
+  uint8_t _respuesta = 0;
   
-  lecturaBoton = digitalRead(pin);
+  _lecturaBoton = digitalRead(_pin);
   
-  if ( lecturaBoton == LOW
+  if ( _lecturaBoton == LOW
        &&
-       lecturaBotonAnterior == HIGH )
+       _lecturaBotonAnterior == HIGH )
   {
-    lecturaBotonAnterior = lecturaBoton;
-    tiempoInicio = millis();
-    tiempoPulsado = 0;
-    accionBoton = HIGH;
+    _lecturaBotonAnterior = _lecturaBoton;
+    _tiempoInicio = millis();
+    _tiempoPulsado = 0;
+    _accionBoton = HIGH;
   }
 
-  if ( lecturaBoton == HIGH
+  if ( _lecturaBoton == HIGH
        &&
-       lecturaBotonAnterior == LOW )
+       _lecturaBotonAnterior == LOW )
   {
-    lecturaBotonAnterior = lecturaBoton;
-    accionBoton = LOW;
-    tiempoPulsado = millis() - tiempoInicio;
+    _lecturaBotonAnterior = _lecturaBoton;
+    _accionBoton = LOW;
+    _tiempoPulsado = millis() - _tiempoInicio;
   }
 
-  if ( tiempoPulsado > TIEMPO_ANTI_REBOTE
+  if ( _tiempoPulsado > _TIEMPO_ANTI_REBOTE
        &&
-       tiempoPulsado < TIEMPO_PULSO_CORTO )
+       _tiempoPulsado < _TIEMPO_PULSO_CORTO )
   {
-    accionBoton = LOW;
-    tiempoPulsado = 0;
-    respuesta = PULSO_CORTO;
+    _accionBoton = LOW;
+    _tiempoPulsado = 0;
+    _respuesta = PULSO_CORTO;
   }
 
-  if ( millis() - tiempoInicio
+  if ( millis() - _tiempoInicio
        >
-       TIEMPO_PULSO_LARGO && accionBoton == HIGH )
+       _TIEMPO_PULSO_LARGO && _accionBoton == HIGH )
   {
-    accionBoton = LOW;
-    tiempoPulsado = 0;
-    respuesta = PULSO_LARGO;
+    _accionBoton = LOW;
+    _tiempoPulsado = 0;
+    _respuesta = PULSO_LARGO;
   }
 
-    return respuesta;
+    return _respuesta;
 
 }
