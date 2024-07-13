@@ -22,24 +22,24 @@
 
 class L_boton {
 
-  private:
-
-    uint8_t pin;                                      // pin para usar el botón
-    uint8_t  TIEMPO_ANTI_REBOTE = 25;                 // tiempo del anti rebote
-    uint16_t TIEMPO_PULSO_CORTO = 500;                // menor a este tiempo será un pulso corto
-    uint16_t TIEMPO_PULSO_LARGO = 1000;               // mayor a este tiempo será un pulso largo (tiempo por defecto)
-    bool lecturaBoton;                                // variable donde guardamos la lectura del botón
-    bool lecturaBotonAnterior = HIGH;                 // lectura del botón anterior
-    bool accionBoton = LOW;                           // variable para saber si el botón ha cambiado
-    uint32_t tiempoInicio;                            // contador de tiempo
-    uint16_t tiempoPulsado;                           // medimos el tiempo que se ha pulsado
-
   public:
 
     L_boton(uint8_t pin);                                                             // función básica, solo el pin y tiempo por defecto
-    L_boton(uint8_t pin, uint16_t _TIEMPO_PULSO_LARGO);                               // pin más el tiempo de activación largo
-    L_boton(uint8_t pin, uint16_t _TIEMPO_PULSO_CORTO, uint16_t _TIEMPO_PULSO_LARGO); // pin más el tiempo de activación largo
+    L_boton(uint8_t pin, uint16_t TIEMPO_PULSO_LARGO);                               // pin más el tiempo de activación largo
+    L_boton(uint8_t pin, uint16_t TIEMPO_PULSO_CORTO, uint16_t TIEMPO_PULSO_LARGO); // pin más el tiempo de activación largo
     uint8_t leerEstado();                                                             // leer estado del botón
+
+  private:
+
+    uint8_t _pin;                                      // pin para usar el botón
+    uint8_t _TIEMPO_ANTI_REBOTE = 25;                 // tiempo del anti rebote
+    uint16_t _TIEMPO_PULSO_CORTO = 500;                // menor a este tiempo será un pulso corto
+    uint16_t _TIEMPO_PULSO_LARGO = 1000;               // mayor a este tiempo será un pulso largo (tiempo por defecto)
+    bool _lecturaBoton;                                // variable donde guardamos la lectura del botón
+    bool _lecturaBotonAnterior = HIGH;                 // lectura del botón anterior
+    bool _accionBoton = LOW;                           // variable para saber si el botón ha cambiado
+    uint32_t _tiempoInicio;                            // contador de tiempo
+    uint16_t _tiempoPulsado;                           // medimos el tiempo que se ha pulsado
 
 };
 
